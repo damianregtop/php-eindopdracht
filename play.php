@@ -12,12 +12,11 @@
     <title>rock paper sciccors</title>
   </head>
   <body>
-    <h1> welcome to rock paper sciccors</h1>
-    <p> please enter a nickname (max 3 characters)</p>
-    <form action="" method="post">
-      <input type="text" name="name" maxlength="3">
-      <input type="submit" value="play">
+    <h2> <?php displayScore();?> </h2>
+    <form action="process.php" method="post">
+      <input type="submit" name="submit" value="rock">
+      <input type="submit" name="submit" value="paper">
+      <input type="submit" name="submit" value="sciccor">
     </form>
-    <?php checkname() ?>
   </body>
 </html>
