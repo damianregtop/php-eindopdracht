@@ -1,6 +1,5 @@
 <?php
   session_start();
-  session_unset();
   include 'functions.php';
 ?>
 <html>
@@ -20,5 +19,6 @@
       <input type="submit" value="play">
     </form>
     <?php checkname() ?>
+    <?php showHighscore();?>
   </body>
 </html>

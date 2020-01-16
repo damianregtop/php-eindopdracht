@@ -17,7 +17,32 @@ function inputScore($name, $score){
   $sql = "INSERT INTO highscores (ID, name, score) VALUES ('', '$name' ,'$score')";
 
   mysqli_query($conn, $sql);
+}
 
+function showHighscore(){
+  ?>
+  <table>
+    <tr>
+      <th>name</th>
+      <th>score</th>
+    </tr>
+    <?php
+
+  $conn = mysqli_connect("localhost", "root", "", "rps_scores");
+  $sql = "SELECT name, score FROM highscores ORDER BY score desc LIMIT 10";
+  $result = mysqli_query($conn, $sql);
+
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) { ?>
+        <tr>
+          <td><?php echo $row["name"]; ?></td>
+          <td><?php echo $row["score"]; ?></td>
+        </tr> <?php
+    }
+  echo "</table>";
+  } else {
+    echo "0 results";
+  }
 }
 
 function generateOutcome(){
@@ -71,7 +96,7 @@ function win(){
 function lose(){
   echo "you lost <br>";
   displayScore();
-  if ($_SESSION["score"] > 1) {
+  if ($_SESSION["score"] >= 1) {
     inputScore($_SESSION['name'], $_SESSION['score']);
     echo "your score has been put in the leaderbord <br>";
   }
