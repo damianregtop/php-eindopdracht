@@ -5,6 +5,10 @@ function checkname(){
     header('Location: play.php');
     $_SESSION["score"] = 0;
   }
+  elseif (isset($_SESSION["name"])) {
+    $_SESSION["score"] = 0;
+    header('Location: play.php');
+  }
 }
 
 function displayScore(){
