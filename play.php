@@ -9,14 +9,14 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <title>rock paper sciccors</title>
+    <title>rock paper scissors</title>
   </head>
   <body>
     <h2> <?php displayScore();?> </h2>
     <form action="process.php" method="post">
       <input type="submit" name="submit" value="rock">
       <input type="submit" name="submit" value="paper">
-      <input type="submit" name="submit" value="sciccor">
+      <input type="submit" name="submit" value="scissor">
     </form>
   </body>
 </html>

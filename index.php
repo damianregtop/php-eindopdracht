@@ -9,16 +9,16 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <title>rock paper sciccors</title>
+    <title>rock paper scissors</title>
   </head>
   <body>
-    <h1> welcome to rock paper sciccors</h1>
+    <h1> welcome to rock paper scissors</h1>
     <p> please enter a nickname (max 3 characters)</p>
     <form action="" method="post">
       <input type="text" name="name" maxlength="3">
       <input type="submit" value="play">
     </form>
-    <?php checkname() ?>
+    <?php checkname(); ?>
     <?php showHighscore();?>
   </body>
 </html>

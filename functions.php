@@ -52,7 +52,7 @@ function showHighscore(){
 function generateOutcome(){
     $playerchoice = $_POST["submit"];
 
-    $choices = array("rock", "paper", "sciccor");
+    $choices = array("rock", "paper", "scissor");
     shuffle($choices);
 
     $serverchoice = $choices[0];
@@ -68,7 +68,7 @@ function generateOutcome(){
       if ($serverchoice == "paper"){
         lose();
       }
-      elseif ($serverchoice == "sciccor") {
+      elseif ($serverchoice == "scissor") {
         win();
       }
     }
@@ -76,11 +76,11 @@ function generateOutcome(){
       if ($serverchoice == "rock") {
         win();
       }
-      elseif ($serverchoice == "sciccor") {
+      elseif ($serverchoice == "scissor") {
         lose();
       }
     }
-    elseif ($playerchoice == "sciccor") {
+    elseif ($playerchoice == "scissor") {
       if ($serverchoice == "paper") {
         win();
     }
@@ -92,13 +92,13 @@ function generateOutcome(){
 
 function win(){
   $_SESSION["score"] = $_SESSION["score"] + 1;
-  echo "you won <br>";
+  echo "<h2>you won </h2><br>";
   displayScore();
   echo "<a href='play.php'>click for another round</a>";
 }
 
 function lose(){
-  echo "you lost <br>";
+  echo "<h2>you lost </h2><br>";
   displayScore();
   if ($_SESSION["score"] >= 1) {
     inputScore($_SESSION['name'], $_SESSION['score']);
