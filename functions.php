@@ -21,9 +21,10 @@ function displayScore(){
 //voegt de score toe aan het scorebord
 function inputScore($name, $score){
   $conn = mysqli_connect("localhost", "root", "", "rps_scores");
-  $sql = "INSERT INTO highscores (ID, name, score) VALUES ('', '$name' ,'$score')";
 
-  mysqli_query($conn, $sql);
+  $stmt = $conn->prepare("INSERT INTO highscores (name, score) VALUES (? ,?)");
+  $stmt->bind_param("ss",$name, $score);
+  $stmt->execute();
 }
 
 //laat alle highscores zien die in de database staan in een tabel form.
